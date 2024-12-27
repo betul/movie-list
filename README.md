@@ -4,6 +4,13 @@ An interactive React application for searching, filtering, and viewing detailed 
 
 ---
 
+
+![image](https://github.com/user-attachments/assets/3db0873b-06ea-4d94-b137-0610ac4c463f)
+
+![image](https://github.com/user-attachments/assets/ebc9b490-898c-4755-bbdb-f393f27ede85)
+
+
+
 ## Table of Contents 📚
 
 - [Features](#features-)
