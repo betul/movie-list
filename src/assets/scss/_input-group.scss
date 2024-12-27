@@ -1,0 +1,15 @@
+@use "variables";
+
+.input-group {
+  .input-group-text {
+    background-color: variables.$card-bg-color;
+    border: 1px solid variables.$table-border-color;
+    color: variables.$muted-text-color;
+    font-size: 1.2rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .form-control {
+    border-radius: 0 4px 4px 0;
+  }
+}

@@ -1,0 +1,21 @@
+@use "variables";
+
+.alert {
+  border-radius: 8px;
+  padding: 1rem;
+
+  &-info {
+    background-color: variables.$table-header-bg;
+    color: variables.$text-color;
+  }
+
+  &-warning {
+    background-color: variables.$alert-warning-bg;
+    color: variables.$warning-color;
+  }
+
+  &-danger {
+    background-color: variables.$danger-bg-color;
+    color: variables.$warning-color;
+  }
+}

@@ -1,0 +1,14 @@
+@use "variables";
+
+header {
+  h1 {
+    color: variables.$primary-color;
+    font-weight: 700;
+    font-size: 2.5rem;
+
+    i {
+      color: variables.$secondary-color;
+      font-size: 2rem;
+    }
+  }
+}

@@ -1,0 +1,33 @@
+@use "variables";
+@use "mixins";
+
+.btn-primary,
+.btn-light {
+  border: none;
+  font-weight: 600;
+  @include mixins.transition(background-color, color);
+
+  &.btn-primary {
+    background-color: variables.$primary-color;
+    color: variables.$background-color;
+
+    &:hover {
+      background-color: darken(variables.$table-header-bg, 5%);
+      color: variables.$text-color;
+    }
+
+    &:focus {
+      @include mixins.border-focus(variables.$primary-color);
+      outline: none;
+    }
+  }
+
+  &.btn-light {
+    background-color: variables.$table-header-bg;
+    color: variables.$text-color;
+
+    &:hover {
+      background-color: darken(variables.$table-header-bg, 5%);
+    }
+  }
+}

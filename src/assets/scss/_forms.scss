@@ -1,0 +1,20 @@
+@use "variables";
+@use "mixins";
+
+.form-control,
+.form-select {
+  background-color: variables.$card-bg-color;
+  border: 1px solid variables.$table-border-color;
+  color: variables.$text-color;
+  border-radius: 4px;
+  font-weight: bold;
+
+  &:focus {
+    @include mixins.border-focus(variables.$primary-color);
+  }
+
+  &::placeholder {
+    color: variables.$muted-text-color;
+    font-weight: bold;
+  }
+}

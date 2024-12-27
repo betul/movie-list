@@ -1,70 +1,246 @@
-# Getting Started with Create React App
+# Movie List Application 🎥
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An interactive React application for searching, filtering, and viewing detailed information about movies.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Table of Contents 📚
 
-### `yarn start`
+- [Features](#features-)
+- [Technologies](#technologies-)
+- [Setup](#setup-)
+- [Usage](#usage-)
+- [Project Structure](#project-structure-)
+- [Components](#components-)
+- [Examples](#examples-)
+- [Contributing](#contributing-)
+- [License](#license-)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Features ✨
 
-### `yarn test`
+- **Search Movies:** Search for movies by title using the OMDb API.
+- **Filter Results:** Filter by year and type (movies, series, or episodes).
+- **Pagination:** Navigate through multiple pages of results.
+- **Movie Details:** View detailed information for selected movies, including posters and descriptions.
+- **Cached Data:** Reduce API calls by caching movie details in Redux.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `yarn build`
+## Technologies 🛠️
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Frontend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React** ⚛️: Component-based UI development.
+- **Redux Toolkit** 🛒: State management for caching and global state.
+- **React Router** 🌐: Navigation between pages.
+- **Bootstrap** 🎨: Pre-styled components and responsive design.
+- **Font Awesome** 🎭: Iconography.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend Integration
 
-### `yarn eject`
+- **OMDb API** 🎥: External API for movie data.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Development Tools
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Axios** 🌐: HTTP client for API requests.
+- **Lodash** 🛠️: Utility functions (e.g., debounce for optimizing API calls).
+- **Sass (SCSS)** 🎨: Advanced CSS styling with variables and mixins.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Setup 🛠️
 
-## Learn More
+1. Clone the repository:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+   ```bash
+   git clone https://github.com/betul/movie-list.git
+   cd movie-list
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install dependencies:
 
-### Code Splitting
+   ```bash
+   yarn install
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+3. Start the development server:
 
-### Analyzing the Bundle Size
+   ```bash
+   yarn start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+4. Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Usage 🚀
 
-### Advanced Configuration
+### Searching for Movies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Use the search bar to find movies by title.
+- Results are fetched dynamically from the OMDb API.
 
-### Deployment
+### Filtering Results
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Filter movies by release year and type (movies, series, or episodes).
 
-### `yarn build` fails to minify
+### Viewing Movie Details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Click on a movie title to view its detailed information.
+- Use the "Back to Movie List" button to return to the main page.
+
+### Caching
+
+- Movie details are cached in Redux to avoid redundant API requests.
+- Cached data reduces loading time and improves user experience.
+
+---
+
+## Project Structure 📞
+
+```
+src/
+├── assets/                # Static assets like images and stylesheets
+├── components/            # Reusable React components
+│   ├── Detail/            # Components for movie details
+│   │   ├── MovieDetail.js      # Main component for movie details
+│   │   ├── MovieInfoList.js    # Displays detailed movie information
+│   │   └── MoviePoster.js      # Displays movie posters
+│   ├── MovieList.js       # Main movie list table
+│   ├── MoviesMain.js      # Main page with search and filters
+│   ├── Pagination.js      # Pagination component
+│   └── SearchFilter.js    # Search and filter component
+├── redux/                 # Redux slices for state management
+│   ├── movieDetailsSlice.js
+│   ├── moviesSlice.js
+│   └── navigationSlice.js
+├── services/              # API integration (Axios setup)
+├── helper/                # Utility functions like normalization
+└── App.js                 # Main application entry point
+```
+
+---
+
+## Components 🧩
+
+### 1. **MoviesMain.js**
+
+- Displays the main interface with search and filter options.
+- Manages movie lists using Redux state.
+
+### 2. **MovieList.js**
+
+- Displays movies in a responsive table.
+- Integrates with `react-bootstrap-table-next` for sortable columns.
+
+### 3. **SearchFilter.js**
+
+- Contains search and filter inputs.
+- Features icons for better usability.
+
+### 4. **MovieDetail.js**
+
+- Shows detailed information about a selected movie.
+- Retrieves data from the Redux cache or API.
+
+### 5. **Pagination.js**
+
+- Handles pagination for the movie list.
+- Ensures seamless navigation through pages.
+
+---
+
+## Examples 📈
+
+### Using Lodash for Debouncing
+
+```javascript
+import { debounce } from "lodash";
+
+const debouncedFetchMovies = useCallback(
+  debounce((normalizedValue) => {
+    dispatch(fetchMovies({ query: normalizedValue, page: 1 }));
+  }, 500),
+  []
+);
+
+const handleSearchChange = (value) => {
+  const normalizedValue = normalizeSearchQuery(value);
+  dispatch(setSearchText(value));
+  if (value.length >= 3) {
+    debouncedFetchMovies(normalizedValue);
+  }
+};
+```
+
+### Using Axios for API Requests
+
+```javascript
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "http://www.omdbapi.com/",
+  params: { apikey: "YOUR_API_KEY" },
+});
+
+export const fetchMovies = async (query, page = 1) => {
+  try {
+    const response = await api.get("/", { params: { s: query, page } });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};
+```
+
+### Redux State Management
+
+```javascript
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import api from "../services/api";
+
+export const fetchMovies = createAsyncThunk(
+  "movies/fetchMovies",
+  async ({ query, page }) => {
+    const response = await api.get("/", { params: { s: query, page } });
+    return { query, page, data: response.data };
+  }
+);
+
+const moviesSlice = createSlice({
+  name: "movies",
+  initialState: { pages: {}, searchText: "", loading: false },
+  reducers: {
+    setSearchText: (state, action) => {
+      state.searchText = action.payload;
+    },
+  },
+});
+```
+
+---
+
+## Contributing 🧱
+
+1. Fork the repository.
+2. Create a feature branch: `git checkout -b feature-name`
+3. Commit your changes: `git commit -m 'Add feature'`
+4. Push to the branch: `git push origin feature-name`
+5. Open a pull request.
+
+---
+
+## License 📜
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+## Icons and Visuals 🎨
+
+- Icons provided by [Font Awesome](https://fontawesome.com/).
+- Emojis are used to enhance visual clarity and engagement.
+
+Enjoy building and exploring! 🎥🍿

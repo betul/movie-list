@@ -3,19 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@reduxjs/toolkit": "^2.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.3",
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
     "react": "^19.0.0",
+    "react-bootstrap-table-next": "^4.0.3",
     "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^7.1.1",
     "react-scripts": "5.0.1",
+    "redux": "^5.0.1",
+    "sass": "^1.83.0",
+    "sass-migrator": "^2.3.0",
     "web-vitals": "^2.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
+    "sass:watch": "sass --watch src/styles/main.scss:src/styles/main.css",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "migrate-sass": "sass-migrator module src"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +48,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

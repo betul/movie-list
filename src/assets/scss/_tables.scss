@@ -1,0 +1,35 @@
+@use "variables";
+
+.table-responsive {
+  background-color: variables.$card-bg-color;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.table {
+  color: variables.$text-color;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  th {
+    background-color: variables.$table-header-bg;
+    color: variables.$primary-color;
+    font-weight: 700;
+    border-bottom: 2px solid variables.$table-border-color;
+  }
+
+  td {
+    background-color: variables.$card-bg-color;
+    color: variables.$text-color;
+    border-bottom: 1px solid variables.$table-border-color;
+
+    &:hover {
+      background-color: variables.$hover-row-bg;
+    }
+  }
+
+  tr:nth-child(even) {
+    background-color: variables.$even-row-bg;
+  }
+}
