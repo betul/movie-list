@@ -7,6 +7,8 @@ import {
   setSelectedMovie,
   setCurrentPage,
   setSearchText,
+  setTotalResults,
+  setTotalPages,
 } from "../redux/moviesSlice";
 import { setFromDetailsPage } from "../redux/navigationSlice";
 import SearchFilter from "./SearchFilter";
@@ -59,12 +61,18 @@ const MoviesMain = () => {
     applyFilters();
   }, [yearFilter, typeFilter, currentPage, pages, applyFilters]);
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    if (!searchText) {
+      dispatch(setTotalResults(0));
+      dispatch(setTotalPages(0));
+    }
+  }, [searchText, dispatch]);
+
   const debouncedFetchMovies = useCallback(
     debounce((normalizedValue) => {
       dispatch(fetchMovies({ query: normalizedValue, page: 1 }));
     }, 500),
-    []
+    [dispatch]
   );
 
   const handleSearchChange = (value) => {

@@ -50,6 +50,13 @@ const moviesSlice = createSlice({
       }
       state.searchText = action.payload;
     },
+
+    setTotalResults: (state, action) => {
+      state.totalResults = action.payload;
+    },
+    setTotalPages: (state, action) => {
+      state.totalPages = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -61,7 +68,7 @@ const moviesSlice = createSlice({
         const { page, data } = action.payload;
         state.pages[page] = data.Search || [];
         state.totalResults = parseInt(data.totalResults, 10) || 0;
-        state.totalPages = Math.ceil((state.totalResults || 1) / 10);
+        state.totalPages = Math.ceil(state.totalResults / 10);
         state.filteredMovies = state.pages[state.currentPage] || [];
         state.loading = false;
       })
@@ -78,6 +85,8 @@ export const {
   clearSelectedMovie,
   setCurrentPage,
   setSearchText,
+  setTotalResults,
+  setTotalPages,
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;
